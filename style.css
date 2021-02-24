@@ -1,0 +1,19 @@
+html, body{
+    background-image: url(images/city.jpeg);
+}
+
+.card{
+    color: rgb(255, 249, 249);
+    background: linear-gradient(#64aee6, #9ea4e4);
+    border-radius: 2rem;
+}
+
+.emoji{
+    font-size: 8rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.weatherinfo{
+    margin-left: 5rem;
+}

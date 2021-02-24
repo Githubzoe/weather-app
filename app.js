@@ -35,17 +35,18 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe())
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
   <div class="card">
     <div class="row no-gutters align-items-center">    
-      <div class="col-2 h2 pl-1 pt-1 text-center">                
-        ${emoji}
+      <div class="col-2 pt-1 ml-3 pl-3 text-center">                
+        <span class="emoji">${emoji}</span>
       </div>
-      <div class="col-10">
+      <div class="col-6 weatherinfo">
         <div class="card-body">
-          <div class="row card-title justify-content-between align-items-center mr-3 mb-1">
-            <h4>${name}</h4>
-            <h6>${temp}c, feels like ${feelsLike}c</h6>
+          <div class="row card-title justify-content-between align-items-center mr-2 mb-1">
+            <h4 class="pl-2">${name}</h4>
+            <h6 class="pl-2">Temp: ${temp}&#8451<h6>
+            <h6 class="pl-2">feels like ${feelsLike}&#8451</h6>
           </div>
           <div class="row">
-            <h5 class="card-subtitle text-muted">${description}</h5>
+            <h5 class="card-subtitle text-muted p-2">${description}</h5>
           </div>
         </div>
       </div>

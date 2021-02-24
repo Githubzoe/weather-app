@@ -9,13 +9,14 @@
   <title>What's the Weather</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
+  <link rel="stylesheet" href="style.css">
+  </head>
 
 <body>
   <div class="container">
     <div class="row mt-5 justify-content-center">
-      <div class="col-md-12 col-lg-12">
-        <h1 class="mb-3">What's the Weather</h1>
+      <div class="col-md-5 col-lg-9">
+        <h1 class="mb-3 text-center">What's the Weather like today?</h1>
         <div class="input-group input-group-lg">
           <div class="input-group-prepend">
             <div class="input-group-text">In</div>
@@ -29,9 +30,11 @@
           <div class="input-group-append">
             <button id="go-button" class="btn btn-primary">Go!</button>
           </div>
-          <button id="find-me" class="ml-5 bg-success">
-            Click to see the weather in your current location</button
-          ><br />
+          <div class="ml-5">
+            <button id="find-me" class="bg-success rounded border-0 fs-1 text-white p-2">
+              Check the weather in your location!</button><br/>
+          </div>
+          
           <p id="status"></p>
           <a id="map-link" target="_blank"></a>
         </div>
@@ -39,8 +42,8 @@
       </div>
     </div>
     <div class="row mt-3 justify-content-center">
-      <div id="weather-container" class="col-md-6 col-lg-6"></div>
-      <div id="weather-container2" class="col-md-6 col-lg-6"></div>
+      <div id="weather-container" class="col-md-5 col-lg-5"></div>
+      <div id="weather-container2" class="col-md-5 col-lg-5"></div>
     </div>
   </div>
 
