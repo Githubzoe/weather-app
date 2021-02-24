@@ -14,23 +14,33 @@
 <body>
   <div class="container">
     <div class="row mt-5 justify-content-center">
-      <div class="col-md-8 col-lg-6">
+      <div class="col-md-12 col-lg-12">
         <h1 class="mb-3">What's the Weather</h1>
         <div class="input-group input-group-lg">
           <div class="input-group-prepend">
             <div class="input-group-text">In</div>
           </div>
-          <input id="city-input" class="form-control" type="text" placeholder="Sydney">
+          <input
+            id="city-input"
+            class="form-control"
+            type="text"
+            placeholder="Sydney"
+          />
           <div class="input-group-append">
             <button id="go-button" class="btn btn-primary">Go!</button>
           </div>
+          <button id="find-me" class="ml-5 bg-success">
+            Click to see the weather in your current location</button
+          ><br />
+          <p id="status"></p>
+          <a id="map-link" target="_blank"></a>
         </div>
-        <div id="error-message" class="invisible bg-danger">Please submit a correct city name.</div>
+        <div id="error-message" class="invisible alert-danger m-3" role="alert"></div>
       </div>
     </div>
     <div class="row mt-3 justify-content-center">
-      <div id="weather-container" class="col-md-8 col-lg-6">
-      </div>
+      <div id="weather-container" class="col-md-6 col-lg-6"></div>
+      <div id="weather-container2" class="col-md-6 col-lg-6"></div>
     </div>
   </div>
 
