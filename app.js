@@ -28,8 +28,8 @@ function geoFindMe() {
     status.textContent = 'Locating…';
     navigator.geolocation.getCurrentPosition(success, error);
   }
-
 }
+document.querySelector('#find-me').addEventListener('click', geoFindMe())
 
 // createCardHtml function used to render the weather info 
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
@@ -112,13 +112,13 @@ goButton.addEventListener('click',  async () => {
 });
 
 function getWether(latitude, longitude){
-  const api =   `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appid}&units=metric`
+  const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appid}&units=metric`
   fetch(api)
-        .then(function(response){
+        .then(response=>{
             let data = response.json();
             return data;
         })
-        .then(function(data){
+        .then (data=>{
           const name = data.name;
           const emoji = emojis[data.weather[0].icon];
           const temp = data.main.temp;
@@ -128,7 +128,6 @@ function getWether(latitude, longitude){
           const cardHtml = createCardHtml(name, emoji, temp, feelsLike, description);
           weatherContainer2.innerHTML = cardHtml;
         });
-      
 }
-document.querySelector('#find-me').addEventListener('click', geoFindMe())
+
 
