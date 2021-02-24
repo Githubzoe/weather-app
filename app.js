@@ -1,11 +1,6 @@
 // Set appId
 const appID='d7ccd62b17514d9b03b57d5eec0c695b';
 
-//fetch weather info from openweathermap api
-// const getWeatherForCity=city=>
-//     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${appID}&units=metric`)
-//     .then((response)=>response.json());
-
 //createCardHtml function to render the weather info
 const createCardHtml=(name, emoji, temp, description)=>`
 <div class="card">
@@ -54,41 +49,33 @@ const emojis = {
 const cityInput=document.querySelector('#city-input');
 const goButton=document.querySelector('#go-button');
 const weatherContainer=document.querySelector('#weather-container');
-
+const errorMessage=document.querySelector('#error-message');
 // add event listener on the go button
 goButton.addEventListener('click', async()=>{
     //get the city from the input field
-    //const city=cityInput.value;
-    const inputValue=cityInput.value;
+    const city=cityInput.value;
 
     //get the weather data for the city
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${appID}&units=metric`);
+    try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appID}&units=metric`);
     const data = await response.json();
     const name=data.name;
     const emoji = emojis[data.weather[0].icon];
     const temp=data.main.temp;
     const description=data.weather[0].description;
-
     //create card HTML
     const htmlCard=createCardHtml(name, emoji, temp, description);
-
+    
+    //hide error message
+    weatherContainer.classList.remove('invisible');
+    errorMessage.classList.add('invisible');
     //render
     weatherContainer.innerHTML=htmlCard;
- 
-    // //get the weather data for the city
-    // getWeatherForCity(city)
-    //     .then(data=>{
-    //         const name=data.name;
-    //         const emoji = emojis[data.weather[0].icon];
-    //         const temp = data.main.temp;
-    //         const description = data.weather[0].description;
-
-    //     //create card HTML
-    //     const cardHtml = createCardHtml(name, emoji, temp, description);
-
-    //     //render
-    //     weatherContainer.innerHTML = cardHtml;
-    //     });
+    } catch(error){
+      //unhide error message
+      errorMessage.classList.remove('invisible');
+      weatherContainer.classList.add('invisible');
+    }
 })
 
 
