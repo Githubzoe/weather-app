@@ -1,5 +1,6 @@
-html, body{
+body{
     background-image: url(images/city.png);
+    background-size: 100%;
 }
 
 .card{
